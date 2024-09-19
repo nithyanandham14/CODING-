@@ -1,0 +1,38 @@
+import java.util.*;
+class Main{
+    public static void main(String args[])
+    {
+        Scanner s = new Scanner(System.in);
+        // entering the size of the array
+        int n =s.nextInt();
+        int num[]=new int[n];
+        for (int i =0;i<n;i++)
+        {
+            num[i]=s.nextInt();
+        }
+        System.out.println("Enter the target element:");
+        int target =s.nextInt();
+        int result=Linearsearch(num,target);
+       if(result !=0)
+       {
+        System.out.println("Element has been found at the index:"+result);
+       }
+       else 
+       {
+        System.out.println("there is no element matched");
+       }
+    }
+    
+
+ public  static int Linearsearch(int[] num, int target) {
+        for(int j =0;j<num.length;j++)
+        {
+            if(target==num[j])
+            {
+                return j;
+            }
+        }
+        return 0;
+    }
+}
+
