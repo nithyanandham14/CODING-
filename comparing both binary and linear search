@@ -1,0 +1,77 @@
+import java.util.*;
+import java.util.Arrays;
+class Main{
+    public static void main(String args[])
+    {
+        Scanner s =new Scanner(System.in);
+        int target=s.nextInt();
+        int nums[]={12,34,23,43,61,13,45,65,78,97,48};
+        Arrays.sort(nums);
+        int result1=Binarysearch( nums, target);
+        int result2=Linearsearch(nums, target);
+        
+            if(result1 != 0)
+            {
+             System.out.println("Target found at  : "+result1);
+            }
+            else{
+                System.out.println("the target is not found");
+            }
+            if(result2 != 0)
+            {
+             System.out.println("Target found at  : "+result2);
+            }
+            else{
+                System.out.println("the target is not found ");
+            }
+    }
+
+    private static int Binarysearch(int[] nums, int target) {
+     int left=0;
+     int right = nums.length-1;
+     int steps=0;
+ 
+     while(left<=right){
+        steps++;
+        int mid = (left+right)/2;
+     if(target == nums[mid])
+     {
+        System.out.println("steps taken to find by binary search  "+steps);
+        return mid;
+
+     }  
+     else if(target<nums[mid])
+     {
+        right =mid-1;
+     } 
+     else
+     {
+        left=mid+1;
+     }
+     
+     
+    }
+
+    return 0;
+}
+public  static int Linearsearch(int[] nums, int target) {
+    int steps=0;
+    for(int j =0;j<nums.length;j++)
+    {
+        steps++;
+        if(target==nums[j])
+        {
+            System.out.println("steps taken to find by linear search "+steps);
+            return j;
+        }
+        
+    }
+    
+    return 0;
+}
+}
+Output:
+steps taken to find by binary search  4
+steps taken to find by linear search 11
+Target found at  : 10
+Target found at  : 10
